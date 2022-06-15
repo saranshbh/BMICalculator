@@ -9,8 +9,9 @@ from setup import import_or_install
 
 if __name__ == '__main__':
     print(TASK_STARTED)
-    # Use BmiCalculatorService And Utils to read and perfom operations
+    # Using BmiCalculatorService and BmiCalculatorUtils to perform all our functions.
 
+    # We are using 2 major libraries included in this
     import_or_install('pandas')
     import_or_install('numpy')
 
@@ -19,18 +20,20 @@ if __name__ == '__main__':
 
     df = pd.DataFrame()
 
+    # Loading all files and storing the json file into a dataframe for further processing.
     files = [f for f in os.listdir('.') if os.path.isfile(f)]
 
     for f in files:
         if '.json' in f:
             df = getDataFrame(f)
-        else:
-            raise Exception("Multiple json files/no json files present")
 
     df = calculateBMI(df)
     df = categorize(df)
 
+    # Printing the final DataFrame
     print(df.head())
+
+
     print('Total Overweight People: ')
     print(countOverweight(df))
     print(TASK_ENDED)

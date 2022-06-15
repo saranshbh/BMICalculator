@@ -11,7 +11,7 @@ class BmiCalculatorUtils:
 
         import pandas as pd
 
-        ## Change file location.
+        # Passing through the file name in the current working directory.
 
         bmi = pd.read_json(filename)
 

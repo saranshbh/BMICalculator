@@ -10,11 +10,15 @@ class BmiCalculatorService:
 
     def calculateBMI(self, df):
 
+        # Vectorization to calculate the bmi given weight and height
+
         df['bmi'] = df['WeightKg'] / (df['HeightCm'] / 100) ** 2
 
         return df
 
     def categorize(self, df):
+
+        # categorize with importing a few constants predefined in the constants file
 
         import numpy as np
 
@@ -32,6 +36,8 @@ class BmiCalculatorService:
         return df
 
     def countOverweight(self, df):
+
+        # Finally, calculating the number of overweight after performing the categorization over all values.
 
         return df.category.value_counts()['Overweight']
 
