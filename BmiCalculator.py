@@ -31,12 +31,10 @@ if __name__ == '__main__':
     df = categorize(df)
 
     print(df.head())
-
     print('Total Overweight People: ')
     print(countOverweight(df))
-
-
     print(TASK_ENDED)
+
 else:
     raise Exception("Incorrect Execution")
 
